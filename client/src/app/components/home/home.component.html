@@ -1,0 +1,9 @@
+<div class="home">
+    <div class="home_container">
+        <div class="home_card" *ngFor="let user of usersList" (click)="userDetails(user)">
+                <p-avatar [label]="user.firstName[0]" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                <span class="card_name">{{user.employeeName}}</span>
+                <span class="card_position">{{user.position}}</span>
+        </div>
+    </div>
+</div>
