@@ -1,0 +1,29 @@
+<div class="suggestions_container">
+    <h3>Related Certifications</h3>
+    <div class="sugg_table">
+        <p-table [value]="certificates" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>S.No </th>
+                    <th>Name of Certification</th>
+                    <th>Cost</th>
+                    <th>Type</th>
+                    <th>Level</th>
+                    <th>Experience</th>
+                    <th>Prerequisite</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-certificate let-columns="columns">
+                <tr>
+                    <td>{{ certificate.id}}</td>
+                    <td>{{ certificate.certificationName}}</td>
+                    <td>{{ certificate.cost}}</td>
+                    <td>{{ certificate.type}}</td>
+                    <td>{{ certificate.level}}</td>
+                    <td>{{ certificate.experience}}</td>
+                    <td>{{ certificate.prerequisite}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
