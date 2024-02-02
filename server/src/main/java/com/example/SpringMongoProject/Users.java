@@ -1,8 +1,6 @@
 package com.example.SpringMongoProject;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.query.Criteria;
 import javax.management.Query;
 import java.time.LocalDate;
 

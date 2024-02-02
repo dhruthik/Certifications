@@ -1,5 +1,7 @@
-package com.example.SpringMongoProject;
+package com.example.SpringMongoProject.Controller;
 
+import com.example.SpringMongoProject.Services.UserService;
+import com.example.SpringMongoProject.Users;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
