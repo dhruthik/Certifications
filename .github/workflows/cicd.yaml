@@ -9,16 +9,6 @@ jobs:
   build:
     runs-on: [ubuntu-latest]
     steps:
-      - name: Start EC2 runner
-        id: start-ec2-runner
-        uses: machulav/ec2-github-runner@v2
-        with:
-            mode: start
-            github-token: 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
-            ec2-image-id: ami-0866a04d72a1f5479
-            ec2-instance-type: t2.micro
-            subnet-id: subnet-06bc28501922822d2
-            security-group-id: sg-038e7ebfdc2e20893
       - name: Checkout source
         uses: actions/checkout@v3
       - name: Setup Java
