@@ -17,10 +17,12 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public List<Users> fetchAllUsers(){
-        return userService.getAllUsers();
-
+//    public List<Users> fetchAllUsers(){
+//        return userService.getAllUsers();
+//
+//    }
+    public String fetchUsers(){
+        return "yay";
     }
-
 
 }
