@@ -34,4 +34,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f springboot-container
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name springboot-container dhruthikonijeti/springboot
+        run: docker run -d -p 4200:4200 --name springboot-container dhruthikonijeti/springboot
