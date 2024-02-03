@@ -30,10 +30,10 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Login to docker hub
-        run: docker login -u dhruthikonijeti -p Honeygold4#
+        run: sudo docker login -u dhruthikonijeti --password-stdin Honeygold4#
       - name: Pull Image from docker hub
-        run: docker pull dhruthikonijeti/springboot:latest
+        run: sudo docker pull dhruthikonijeti/springboot:latest
       - name: Delete old container
-        run: docker rm -f springboot-container
+        run: sudo docker rm -f springboot-container
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name springboot-container dhruthikonijeti/springboot
+        run: sudo docker run -d -p 8080:8080 --name springboot-container dhruthikonijeti/springboot
