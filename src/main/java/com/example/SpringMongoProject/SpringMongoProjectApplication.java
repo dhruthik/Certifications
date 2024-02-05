@@ -1,5 +1,6 @@
 package com.example.SpringMongoProject;
 import com.example.SpringMongoProject.Repo.Userrepo;
+import com.example.SpringMongoProject.document.Users;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

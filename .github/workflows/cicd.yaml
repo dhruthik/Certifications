@@ -30,8 +30,16 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Pull Image from docker hub
-        run: docker pull dhruthikonijeti/springboot:latest
+        run: |
+            docker pull dhruthikonijeti/springboot:latest
+            docker pull mongo:latest
       - name: Delete old container
-        run: docker rm -f springboot-container
+        run: |
+            docker rm -f springboot-container || true
+            docker rm -f mongodb || true
+      - name: Run MongoDB container
+        run: docker run -d -p 27017:27017 --name mongodb mongo
+      - name: Wait for MongoDB to start
+        run: sleep 10
       - name: Run docker container
         run: docker run -d -p 8080:8080 --name springboot-container dhruthikonijeti/springboot

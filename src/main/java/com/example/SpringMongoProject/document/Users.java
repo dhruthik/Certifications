@@ -1,4 +1,4 @@
-package com.example.SpringMongoProject;
+package com.example.SpringMongoProject.document;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.management.Query;

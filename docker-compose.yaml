@@ -20,6 +20,15 @@ services:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
       - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
       - ME_CONFIG_MONGODB_SERVER=mongodb
+  springboot-app:
+    image: dhruthikonijeti/springboot
+    container_name: springboot-container
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb
+
 volumes:
   data: {}
 

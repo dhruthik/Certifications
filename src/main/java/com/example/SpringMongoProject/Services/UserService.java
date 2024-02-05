@@ -1,7 +1,7 @@
 package com.example.SpringMongoProject.Services;
 
 import com.example.SpringMongoProject.Repo.Userrepo;
-import com.example.SpringMongoProject.Users;
+import com.example.SpringMongoProject.document.Users;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,11 @@
 package com.example.SpringMongoProject.Controller;
-
 import com.example.SpringMongoProject.Services.UserService;
-import com.example.SpringMongoProject.Users;
+import com.example.SpringMongoProject.document.Users;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -17,12 +17,10 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-//    public List<Users> fetchAllUsers(){
-//        return userService.getAllUsers();
-//
-//    }
-    public String fetchUsers(){
-        return "yay";
+    public List<Users> fetchAllUsers(){
+        return userService.getAllUsers();
+
     }
+    //
 
 }
