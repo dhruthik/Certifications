@@ -40,6 +40,10 @@ jobs:
       - name: Run MongoDB container
         run: docker run -d -p 27017:27017 --name mongodb mongo
       - name: Wait for MongoDB to start
-        run: docker exec mongodb mongo --eval "printjson(db.serverStatus())" && sleep 10
+        run: |
+          run: |
+              docker exec -it mongodb sh -c "while ! nc -z localhost 27017; do sleep 1; done"
+              docker exec -it mongodb mongo --eval "printjson(db.serverStatus())"
+              sleep 10
       - name: Run docker container
         run: docker run -d -p 8080:8080 --name springboot-container --link mongodb dhruthikonijeti/springboot
