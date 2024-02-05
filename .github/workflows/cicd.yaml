@@ -43,3 +43,5 @@ jobs:
         run:  sleep 10
       - name: Run docker container
         run: docker run -d -p 8080:8080 --name springboot-container --link mongodb dhruthikonijeti/springboot
+        env:
+          SPRING_DATA_MONGODB_URI: mongodb://rootuser:rootpass@mongodb:27017/certification
