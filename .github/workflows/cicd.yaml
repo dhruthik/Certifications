@@ -32,11 +32,8 @@ jobs:
     steps:
       - name: Log Disk Space
         run: df -h
-      - name: Login to docker hub
-        run: sudo docker login -u dhruthikonijeti -p Honeygold4#
       - name: Pull Image from docker hub
         run: |
-            sudo usermod -aG docker $USER
             docker pull dhruthikonijeti/springboot:latest
             docker pull mongo:latest
       - name: Delete old container
