@@ -33,7 +33,7 @@ jobs:
       - name: Log Disk Space
         run: df -h
       - name: Login to docker hub
-        run: docker login -u dhruthikonijeti -p Honeygold4#
+        run: sudo docker login -u dhruthikonijeti -p Honeygold4#
       - name: Pull Image from docker hub
         run: |
             docker pull dhruthikonijeti/springboot:latest
