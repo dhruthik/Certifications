@@ -32,6 +32,8 @@ jobs:
     steps:
       - name: Log Disk Space
         run: df -h
+      - name: Login to docker hub
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Pull Image from docker hub
         run: |
             docker pull dhruthikonijeti/springboot:latest
