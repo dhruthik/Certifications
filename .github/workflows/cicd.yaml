@@ -28,6 +28,7 @@ jobs:
         run: |
           docker system prune -af
 
+
   deploy:
     needs: build
     runs-on: [aws-ec2]
