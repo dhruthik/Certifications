@@ -25,7 +25,6 @@ jobs:
       - name: Publish image to docker hub
         run: docker push dhruthikonijeti/springboot:latest
 
-
   deploy:
     needs: build
     runs-on: [aws-ec2]
