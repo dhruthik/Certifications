@@ -24,12 +24,17 @@ jobs:
         run: docker build -t dhruthikonijeti/springboot .
       - name: Publish image to docker hub
         run: docker push dhruthikonijeti/springboot:latest
+      - name: Clean Up Docker Resources
+        run: |
+          docker system prune -af
 
 
   deploy:
     needs: build
     runs-on: [aws-ec2]
     steps:
+      - name: Log Disk Space
+        run: df -h
       - name: Pull Image from docker hub
         run: |
             docker pull dhruthikonijeti/springboot:latest
