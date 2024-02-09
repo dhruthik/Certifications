@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "employeeName": "John Doe",
     "phoneNumber": "1234567890",
     "position": "Software Developer",
@@ -52,6 +52,7 @@
     "phoneNumber": "9876543210",
     "position": "UX Designer",
     "experience": 5,
+    "email": "jane@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
@@ -97,6 +98,7 @@
     "phoneNumber": "4567890123",
     "position": "Project Manager",
     "experience": 8,
+    "email": "bob@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId4",
@@ -142,6 +144,7 @@
     "phoneNumber": "8765432109",
     "position": "Marketing Specialist",
     "experience": 2,
+    "email": "alice@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
@@ -199,6 +202,7 @@
     "phoneNumber": "5432109876",
     "position": "Data Analyst",
     "experience": 4,
+    "email": "david@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
@@ -256,6 +260,7 @@
     "phoneNumber": "2109876543",
     "position": "HR Specialist",
     "experience": 6,
+    "email": "eva@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
@@ -313,6 +318,7 @@
     "phoneNumber": "1098765432",
     "position": "Sales Representative",
     "experience": 7,
+    "email": "george@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
@@ -370,6 +376,7 @@
     "phoneNumber": "4321098765",
     "position": "Financial Analyst",
     "experience": 9,
+    "email": "hannah@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
@@ -427,6 +434,7 @@
     "phoneNumber": "3210987654",
     "position": "Quality Assurance Engineer",
     "experience": 3,
+    "email": "isaac@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
@@ -484,6 +492,7 @@
     "phoneNumber": "8765432101",
     "position": "Customer Support Specialist",
     "experience": 4,
+    "email": "jasmine@abc.com",
     "certifications": [
       {
         "id": "sfCertificateId1",
