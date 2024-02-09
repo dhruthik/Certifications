@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserTaskManagerComponent } from './user-task-manager.component';
+import { EmployeePageComponent } from './employee-page.component';
 
-describe('UserTaskManagerComponent', () => {
-  let component: UserTaskManagerComponent;
-  let fixture: ComponentFixture<UserTaskManagerComponent>;
+describe('EmployeePageComponent', () => {
+  let component: EmployeePageComponent;
+  let fixture: ComponentFixture<EmployeePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserTaskManagerComponent]
+      imports: [EmployeePageComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(UserTaskManagerComponent);
+    fixture = TestBed.createComponent(EmployeePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

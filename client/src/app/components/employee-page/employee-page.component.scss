@@ -1,0 +1,67 @@
+.employee_page{
+    padding-top: 5rem;
+    width: 100%;
+    height: 100vh;
+    .emp_container{
+        margin: 0 auto;
+        max-width: 1728px;
+        width: 95%;
+        height: 98%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 10px;
+        position: relative;
+        .emp_login{
+            width: 45%;
+            height: 50%;
+            max-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            border-radius: 20px;
+            // animation: moveToRight 1s ease-in forwards;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: white;
+            h3{
+                margin-bottom: 20px;
+            }
+            form{
+                height: 70%;
+                display: flex;
+                // align-items: center;
+                // justify-content: center;
+                flex-direction: column;
+                span{
+                    margin: 10px 0;
+                    input{
+                        height: 40px;
+                        width: 100%;
+                    }
+                }
+            }
+            .login_btn{
+                // text-align: center;
+            }
+        }
+    }
+    .emp_container_bcgd::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: #1279d6;
+    }
+}
+
+.emp_cards{
+    .emp_cards_header{
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+    }
+}

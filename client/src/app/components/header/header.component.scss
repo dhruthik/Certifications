@@ -7,6 +7,7 @@
     .header_container{
         background-color: #ffffff;
         margin: 0 auto;
+        max-width: 1728px;
         width: 95%;
         display: flex;
         align-items: center;
@@ -15,16 +16,64 @@
         height: 4rem;
         .header_left{
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 50%;
             img{
                 width: 100px;
                 height:2.5rem
             }
+            .header_title{
+                margin-left: 10px;
+                font-size: 18px;
+                font-weight: 700;
+                color: #0f508a;
+            }
         }
-        .header_right{
+        .header_tabs{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: end    ;
             span{
                 font-size: 18px;
                 font-weight: 700;
                 color: #0f508a;
+                margin: 0 10px; 
+                cursor: pointer;
+            }
+        }
+    }
+}
+.tab_active{
+    border-bottom: 3px solid #0f508a;
+}
+
+@media (max-width: 500px) {
+    .header{
+        .header_container{
+            padding: 0 0.5rem;
+            .header_left{
+                img{
+                    width: 80px;
+                    height:2.2rem
+                }
+                .header_title{
+                    margin-left: 10px;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #0f508a;
+                }
+            }
+            .header_tabs{
+                span{
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #0f508a;
+                    margin: 0 10px; 
+                    cursor: pointer;
+                }
             }
         }
     }

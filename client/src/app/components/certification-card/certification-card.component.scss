@@ -1,0 +1,96 @@
+.certification_card{
+    width: 100%;
+    .cert_card_container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 12px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .cert_card{
+        width: 95%;
+        height: 30%;
+        border-radius: 10px;
+        padding: 10px;
+        border-left: 10px solid red;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        display: flex;
+        font-size: 14px;
+        .card_r1{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .c1{
+                padding: 2px;
+            }
+        }
+        .card_r2{
+            width: 100%;
+           
+            .card_steps{
+                height: 100%;
+            }
+        }
+    }
+    :host ::ng-deep .p-steps {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+        }
+     }
+      
+      :host ::ng-deep .p-steps .p-steps-item:before {
+        content: " ";
+        border-top: 1px solid #e5e7eb;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        display: block;
+        position: absolute;
+        transform: rotate(90deg);
+      }    
+
+      :host ::ng-deep .p-steps-number{
+        font-size: 12px;
+      }
+    
+}
+
+@media (min-width: 768px) {
+    .cert_card{
+        width: 95%;
+        height: 12rem;
+        border-radius: 10px;
+        padding: 10px;
+        border-left: 10px solid red;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        .card_r1{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            .c1{
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                width: 20%;
+            }
+        }
+        .card_r2{
+            width: 100%;
+            height: 40%;
+        }
+    } 
+}
+
+
+:host ::ng-deep .p-steps-number{
+    cursor: pointer;
+  }

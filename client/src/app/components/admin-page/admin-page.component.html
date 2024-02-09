@@ -1,0 +1,73 @@
+<div class="admin">
+    <div class="admin_container" [ngClass]="showEmpContent?'':'admin_container_bcgd'">
+         <div [ngClass]="showEmpContent?'admin_search_in':'admin_search_out'">
+            <div *ngIf="showEmpContent" class="admin_emp_content">
+                <i class="pi pi-bars" (click)="onNavOpen()"></i>
+                <p-avatar [label]="empName[0]" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
+                <span>{{empName}}</span>
+            </div>
+            <form class="admin_form" [formGroup]="userForm">
+                <label *ngIf="!showEmpContent" for="float-label">Search Employee</label>
+                <p-autoComplete formControlName="selectedUser" inputId="float-label" placeholder="Enter employee name"
+                 [dropdown]="true" [suggestions]="userList" 
+                (completeMethod)="filterEmployees($event)" field="employeeName"></p-autoComplete>
+                <div class="admin_search_btn">
+                    <p-button label="Search" [disabled]="false" (click)="onSubmit()"></p-button>
+                </div>
+            </form>
+        </div>
+        <div class="admin_content" *ngIf="showEmpContent">
+            <div *ngFor="let certDetails of certData.certifications">
+                <app-certification-card [certData]="certDetails" ></app-certification-card>
+            </div>
+        </div>
+    </div>
+    <div class="admin_nav" *ngIf="showNav">
+        <div class="nav_left">
+            <div class="user_title">
+                <p-avatar [label]="empName[0]" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
+                <span>{{empName}}</span>
+                <div class="nav_close">
+                    <i (click)="onNavClose()" class="pi pi-times"></i>
+                </div>
+            </div>
+            <div class="user_details">
+                <span><b>Email : </b>{{certData.email}}</span>
+                <span><b>Position : </b>{{certData.position}}</span>
+                <span><b>Experience : </b>{{certData.experience}}years</span>
+                <span><b>Tech Stack : </b>{{certData.techStack}}</span>
+            </div>
+            <div class="user_cert_btn">
+                <p-button label="Add New Certification" (click)="onAddCert()"></p-button>
+            </div>
+        </div>
+        <div class="nav_right" (click)="onNavClose()"></div>
+    </div>
+    <div class="admin_dialog" *ngIf="showDialog">
+        <div class="admin_dialog_container">
+            <div class="dialog_header">
+                <h3>Add New Certification</h3>
+                <div class="nav_close">
+                    <i (click)="onDialogClose()" class="pi pi-times"></i>
+                </div>
+            </div>
+            <div class="dialog_section">
+                <form [formGroup]="userForm">
+                    <div class="form_stack">
+                        <label>Select Tech Stack</label>
+                        <p-dropdown formControlName="selectedStack" [options]="techStack" placeholder="select"></p-dropdown>
+                    </div>
+                    <div class="form_cert">
+                        <label>Select Certification</label>
+                        <p-dropdown formControlName="selectedCertification" [options]="certificationNames" placeholder="select"></p-dropdown>
+                    </div>
+                    <div class="dialog_btns">
+                        <p-button class="cancel" label="Cancel" (click)="onDialogClose()"></p-button>
+                        <p-button class="add" label="Add" (click)="onAddCert()"></p-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>

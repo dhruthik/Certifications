@@ -1,0 +1,33 @@
+<div class="employee_page">
+    <div class="emp_container" [ngClass]="!isLoggedIn?'emp_container_bcgd':''">
+    @if (!isLoggedIn) {
+        <div class="emp_login">
+            <h3>Employee Login</h3>
+            <form [formGroup]="userLoginForm">
+                <span class=" login_input">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" formControlName="username" />
+                </span>
+                <span class="">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password"  [disabled]="true" />
+                </span>
+                <div class="login_btn">
+                    <p-button type="submit" label="Login" (click)="empLogin()"></p-button>
+                </div>
+            </form>
+        </div>
+    }
+    @else {
+        <div class="emp_cards">
+            <div class="emp_cards_header">
+                <p-avatar [label]="certData.employeeName[0]" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
+                <h3>{{certData.employeeName}}</h3>
+            </div>
+            <div class="emp_cards_container" *ngFor="let certDetails of certData.certifications">
+                <app-certification-card [certData]="certDetails" ></app-certification-card>
+            </div>
+        </div>
+    }
+    </div>
+</div>

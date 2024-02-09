@@ -1,10 +1,12 @@
 <div class="header">
     <div class="header_container">
         <div class="header_left">
-            <a routerLink="/"><img src="../../../assets/images/AVK-Square-Logo.png" alt="AVK_logo"></a>
+            <a routerLink="/admin"><img src="../../../assets/images/AVK-Square-Logo.png" alt="AVK_logo"></a>
+            <span class="header_title">Certifications</span>
         </div>
-        <div class="header_right">
-            <span>Certifications</span>
+        <div class="header_tabs">
+            <span routerLink="/admin" class="tab_admin" [ngClass]="tabIdx === 0 ? 'tab_active' : ''" (click)="onTabSelect(0)">Admin</span>
+            <span routerLink="/employee" class="tab_employee" [ngClass]="tabIdx === 1 ? 'tab_active' : ''" (click)="onTabSelect(1)">Employee</span>
         </div>
     </div>
 </div>
