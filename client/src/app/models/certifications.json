@@ -7,7 +7,9 @@
               "type": "Associates",
               "level": "Entry-level",
               "experience": "0-6 months",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId2",
@@ -16,7 +18,9 @@
               "type": "Associates",
               "level": "Entry-level",
               "experience": "0-6 months",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId3",
@@ -25,7 +29,9 @@
               "type": "Associates",
               "level": "Entry-level",
               "experience": "1-2 years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId4",
@@ -34,7 +40,9 @@
               "type": "Admins",
               "level": "Mid-level",
               "experience": "1-2 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId5",
@@ -43,7 +51,9 @@
               "type": "Admins",
               "level": "Mid-level",
               "experience": "1-2 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId6",
@@ -52,7 +62,9 @@
               "type": "Admins",
               "level": "Mid-level",
               "experience": "1-2 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId7",
@@ -61,7 +73,9 @@
               "type": "Admins",
               "level": "Mid-level",
               "experience": "6-12 months",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId8",
@@ -70,7 +84,9 @@
               "type": "Admins",
               "level": "Mid-level",
               "experience": "2 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId9",
@@ -79,7 +95,9 @@
               "type": "Designers",
               "level": "Mid-level",
               "experience": "1-2 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId10",
@@ -88,7 +106,9 @@
               "type": "Designers",
               "level": "Mid-level",
               "experience": "1-2 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId11",
@@ -97,7 +117,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "2-5 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId12",
@@ -106,7 +128,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "2 years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId13",
@@ -115,7 +139,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "2+ years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId14",
@@ -124,7 +150,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "2-5 years",
-              "prerequisite": "Administrator and Service Cloud Consultant credentials"
+              "prerequisite": "Administrator and Service Cloud Consultant credentials",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId15",
@@ -133,7 +161,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "2-5 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId16",
@@ -142,7 +172,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "1+ years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId17",
@@ -151,7 +183,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "3 years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId18",
@@ -160,7 +194,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "3+ years",
-              "prerequisite": "Administrator credential"
+              "prerequisite": "Administrator credential",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId19",
@@ -169,7 +205,9 @@
               "type": "Consultants",
               "level": "Mid-level",
               "experience": "3+ years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId20",
@@ -178,7 +216,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "1+ years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId21",
@@ -187,7 +227,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "3+ years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId22",
@@ -196,7 +238,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "5+ years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId23",
@@ -205,7 +249,9 @@
               "type": "Architects",
               "level": "Mid-level",
               "experience": "2 years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId24",
@@ -214,7 +260,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "8+ years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId25",
@@ -223,7 +271,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "8+ years",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId26",
@@ -232,7 +282,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "5+ years",
-              "prerequisite": "Platform App Builder, Platform Developer 1, Sharing and Visibility Architect, Data Architect"
+              "prerequisite": "Platform App Builder, Platform Developer 1, Sharing and Visibility Architect, Data Architect",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId27",
@@ -241,7 +293,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "5+ years",
-              "prerequisite": "Platform Developer I, Development Lifecycle and Deployment Architect, Identity and Access Management Architect, Integration Architect"
+              "prerequisite": "Platform Developer I, Development Lifecycle and Deployment Architect, Identity and Access Management Architect, Integration Architect",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId28",
@@ -250,7 +304,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "2+ years",
-              "prerequisite": "Platform App Builder, Integration Architect, Marketing Cloud Email Specialist"
+              "prerequisite": "Platform App Builder, Integration Architect, Marketing Cloud Email Specialist",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId29",
@@ -259,7 +315,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "2+ years",
-              "prerequisite": "B2C Commerce Developer"
+              "prerequisite": "B2C Commerce Developer",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId30",
@@ -268,7 +326,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "5+ years",
-              "prerequisite": "Platform App Builder, Platform Developer 1, Data Architect, Sharing and Visibility Architect"
+              "prerequisite": "Platform App Builder, Platform Developer 1, Data Architect, Sharing and Visibility Architect",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId31",
@@ -277,7 +337,9 @@
               "type": "Architects",
               "level": "Senior-level",
               "experience": "8+ years",
-              "prerequisite": "Application Architect, System Architect"
+              "prerequisite": "Application Architect, System Architect",
+              "startDate": "",
+              "endDate": ""
             },
             {
               "cid": "sfCertificateId32",
@@ -286,7 +348,9 @@
               "type": "Marketers",
               "level": "Entry-level",
               "experience": "3-6 months",
-              "prerequisite": "None"
+              "prerequisite": "None",
+              "startDate": "",
+              "endDate": ""
             },
             {
                 "cid": "sfCertificateId33",
@@ -295,7 +359,9 @@
                 "type": "Marketers",
                 "level": "Senior-level",
                 "experience": "1+ years",
-                "prerequisite": "Marketing Cloud Specialist"
+                "prerequisite": "Marketing Cloud Specialist",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId34",
@@ -304,7 +370,9 @@
                 "type": "Marketers",
                 "level": "Senior-level",
                 "experience": "1 year",
-                "prerequisite": "Marketing Cloud Administrator"
+                "prerequisite": "Marketing Cloud Administrator",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId35",
@@ -313,7 +381,9 @@
                 "type": "Marketers",
                 "level": "Mid-level",
                 "experience": "6-12 months",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId36",
@@ -322,7 +392,9 @@
                 "type": "Marketers",
                 "level": "Entry-level",
                 "experience": "3-6 months",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId37",
@@ -331,7 +403,9 @@
                 "type": "Marketers",
                 "level": "Mid-level",
                 "experience": "1+ years",
-                "prerequisite": "Marketing Cloud Account Engagement Specialist"
+                "prerequisite": "Marketing Cloud Account Engagement Specialist",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId38",
@@ -340,7 +414,9 @@
                 "type": "Developers",
                 "level": "Entry-level",
                 "experience": "3-6 months",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId39",
@@ -349,7 +425,9 @@
                 "type": "Developers",
                 "level": "Mid-level",
                 "experience": "2-4 years",
-                "prerequisite": "Platform Developer I"
+                "prerequisite": "Platform Developer I",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId40",
@@ -358,7 +436,9 @@
                 "type": "Developers",
                 "level": "Entry-level",
                 "experience": "1-2 years",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId41",
@@ -367,7 +447,9 @@
                 "type": "Developers",
                 "level": "Mid-level",
                 "experience": "1-2 years",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId42",
@@ -376,7 +458,9 @@
                 "type": "Developers",
                 "level": "Mid-level",
                 "experience": "1-2 years",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId43",
@@ -385,7 +469,9 @@
                 "type": "Developers",
                 "level": "Mid-level",
                 "experience": "1-2 years",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               },
               {
                 "cid": "sfCertificateId44",
@@ -394,9 +480,10 @@
                 "type": "Sales",
                 "level": "Mid-level",
                 "experience": "6 months to 3 years",
-                "prerequisite": "None"
+                "prerequisite": "None",
+                "startDate": "",
+                "endDate": ""
               }
-          
     ],
     "aws":[
         
