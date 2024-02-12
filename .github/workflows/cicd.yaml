@@ -42,6 +42,10 @@ jobs:
         run: |
             docker rm -f springboot-container || true
             docker rm -f mongodb || true
+      - name: Stop existing containers
+        run: docker-compose down
+      - name: Start new containers
+        run: docker-compose up -d
       - name: Run MongoDB container
         run: docker run -d -p 27017:27017 --name mongodb mongo
       - name: Wait for MongoDB to start
