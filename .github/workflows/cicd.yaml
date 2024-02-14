@@ -3,7 +3,7 @@ name: CICD
 on:
   push:
     branches:
-      - 'check-build'
+      - ['check-build', 'docker-build']
 jobs:
   build:
     runs-on: [ubuntu-latest]
@@ -21,8 +21,8 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build Docker Images
         run: |
-           docker build -t dhruthikonijeti/mongo:latest .
-           docker build -t dhruthikonijeti/mongo-express:latest .
+           docker build -t dhruthikonijeti/mongo .
+           docker build -t dhruthikonijeti/mongo-express .
            docker build -t dhruthikonijeti/springboot .
       - name: Push Docker Images
         run: |
@@ -42,15 +42,22 @@ jobs:
         run: |
             docker pull dhruthikonijeti/springboot:latest
             docker pull dhruthikonijeti/mongo:latest
+            docker pull dhruthikonijeti/mongo-express:latest
       - name: Delete old container
         run: |
             docker rm -f springboot-container || true
-            docker rm -f mongodb || true
+            docker rm -f mongo-container || true
+            docker rm -f mongoexpress-container || true
+      
+      - name: Run Mongo express container
+        run: docker run -d -p 8081:8081 --name mongoexpress-container dhruthikonijeti/mongo-express      
+      - name: Wait for Mongo express to start
+        run:  sleep 10
       - name: Run MongoDB container
-        run: docker run -d -p 27017:27017 --name mongodb mongo
+        run: docker run -d -p 27017:27017 --name mongo-container --link dhruthikonijeti/mongo-express dhruthikonijeti/mongo
       - name: Wait for MongoDB to start
         run:  sleep 10
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name springboot-container --link mongodb dhruthikonijeti/springboot
+        run: docker run -d -p 8080:8080 --name springboot-container --link dhruthikonijeti/mongo dhruthikonijeti/springboot
         env:
-          SPRING_DATA_MONGODB_URI: mongodb://rootuser:rootpass@mongodb:27017/certification
+          SPRING_DATA_MONGODB_URI: mongodb://rootuser:rootpass@mongo-container:27017/certification

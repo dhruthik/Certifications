@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   mongodb:
-    image: mongo
-    container_name: mongodb
+    image: dhruthikonijeti/mongo
+    container_name: mongo-container
     ports:
       - 27017:27017
     volumes:
@@ -12,8 +12,8 @@ services:
 #      - MONGO_INITDB_ROOT_PASSWORD=rootpass
       - MONGO_INITDB_DATABASE=certification
   mongo-express:
-    image:  mongo-express
-    container_name: mongo-express
+    image:  dhruthikonijeti/mongo-express
+    container_name: mongoexpress-container
     restart: always
     ports:
       - 8081:8081
@@ -28,7 +28,7 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - mongodb
+      - mongo-container
 
 volumes:
   mongodb_data:
