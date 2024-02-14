@@ -23,6 +23,17 @@ jobs:
         run: docker build -t dhruthikonijeti/springboot .
       - name: Publish image to docker hub
         run: docker push dhruthikonijeti/springboot:latest
+      - name: Build MongoDB Image
+        run: docker build -t dhruthikonijeti/mongo:latest -f Dockerfile.mongodb .
+
+      - name: Build Mongo Express Image
+        run: docker build -t dhruthikonijeti/mongo-express:latest -f Dockerfile.mongo-express .
+
+      - name: Push MongoDB Image
+        run: docker push dhruthikonijeti/mongo:latest
+
+      - name: Push Mongo Express Image
+        run: docker push dhruthikonijeti/mongo-express:latest
 
 
   deploy:
