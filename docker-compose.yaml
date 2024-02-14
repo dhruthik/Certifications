@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   mongodb:
-    image: dhruthikonijeti/mongo
+    image: mongo
     container_name: mongodb
     ports:
       - 27017:27017
@@ -12,7 +12,7 @@ services:
 #      - MONGO_INITDB_ROOT_PASSWORD=rootpass
       - MONGO_INITDB_DATABASE=certification
   mongo-express:
-    image:  dhruthikonijeti/mongo
+    image:  mongo-express
     container_name: mongo-express
     restart: always
     ports:

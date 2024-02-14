@@ -19,23 +19,16 @@ jobs:
         run: mvn clean install -DskipTests
       - name: Login to docker hub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
-      - name: Build docker image
-        run: docker build -t dhruthikonijeti/springboot .
-      - name: Publish image to docker hub
-        run: docker push dhruthikonijeti/springboot:latest
-
-      - name: Build MongoDB Image
-        run: docker build -t dhruthikonijeti/mongo:latest
-
-      - name: Build Mongo Express Image
-        run: docker build -t dhruthikonijeti/mongo-express:latest
-
-      - name: Push MongoDB Image
-        run: docker push dhruthikonijeti/mongo:latest
-
-      - name: Push Mongo Express Image
-        run: docker push dhruthikonijeti/mongo-express:latest
-
+      - name: Build Docker Images
+        run: |
+           docker build -t dhruthikonijeti/mongo:latest -f Dockerfile.mongo .
+           docker build -t dhruthikonijeti/mongo-express:latest -f Dockerfile.mongo-express .
+           docker build -t dhruthikonijeti/springboot .
+      - name: Push Docker Images
+        run: |
+          docker push dhruthikonijeti/mongo:latest
+          docker push dhruthikonijeti/mongo-express:latest
+          docker push dhruthikonijeti/springboot:latest
 
   deploy:
     needs: build
