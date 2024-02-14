@@ -3,7 +3,7 @@ name: CICD
 on:
   push:
     branches:
-      - ['check-build', 'docker-build']
+      -  'docker-build'
 jobs:
   build:
     runs-on: [ubuntu-latest]
