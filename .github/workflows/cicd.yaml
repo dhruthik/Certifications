@@ -36,7 +36,7 @@ jobs:
       - name: Pull Image from docker hub
         run: |
             docker pull dhruthikonijeti/springboot:latest
-            docker pull mongo:latest
+            docker pull dhruthikonijeti/mongo:latest
       - name: Delete old container
         run: |
             docker rm -f springboot-container || true

@@ -13,6 +13,7 @@ public class UserService {
 
     private final Userrepo userrepo;
     public boolean userExistsByEmail(String email) {
+
         return userrepo.existsByemail(email);
     }
     public Users addUser(Users user) {
@@ -31,6 +32,11 @@ public class UserService {
 
     public Optional<Users> getUserById(int userId) {
         return userrepo.findById(userId);
+    }
+
+    public Users updateUser(Users updatedUser) {
+
+        return userrepo.save(updatedUser);
     }
 
 
