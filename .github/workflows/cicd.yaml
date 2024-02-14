@@ -54,7 +54,7 @@ jobs:
       - name: Wait for Mongo express to start
         run:  sleep 10
       - name: Run MongoDB container
-        run: docker run -d -p 27017:27017 --name mongo-container --link mongoexpress-container dhruthikonijeti/mongo
+        run: docker run -d -p 27017:27017 --name mongo-container dhruthikonijeti/mongo
       - name: Wait for MongoDB to start
         run:  sleep 10
       - name: Run docker container
