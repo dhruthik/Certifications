@@ -21,13 +21,11 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build Docker Images
         run: |
-           docker build -t dhruthikonijeti/mongo .
-           docker build -t dhruthikonijeti/mongo-express .
+
            docker build -t dhruthikonijeti/springboot .
       - name: Push Docker Images
         run: |
-          docker push dhruthikonijeti/mongo:latest
-          docker push dhruthikonijeti/mongo-express:latest
+
           docker push dhruthikonijeti/springboot:latest
 
   deploy:
@@ -41,22 +39,11 @@ jobs:
       - name: Pull Image from docker hub
         run: |
             docker pull dhruthikonijeti/springboot:latest
-            docker pull dhruthikonijeti/mongo:latest
-            docker pull dhruthikonijeti/mongo-express:latest
+
       - name: Delete old container
         run: |
             docker rm -f springboot-container || true
-            docker rm -f mongo-container || true
-            docker rm -f mongoexpress-container || true
       
-      - name: Run Mongo express container
-        run: docker run -d -p 8081:8081 --name mongoexpress-container dhruthikonijeti/mongo-express      
-      - name: Wait for Mongo express to start
-        run:  sleep 10
-      - name: Run MongoDB container
-        run: docker run -d -p 27017:27017 --name mongo-container dhruthikonijeti/mongo
-      - name: Wait for MongoDB to start
-        run:  sleep 10
       - name: Run docker container
         run: docker run -d -p 8080:8080 --name springboot-container dhruthikonijeti/springboot
 
