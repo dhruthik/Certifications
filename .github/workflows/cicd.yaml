@@ -58,6 +58,6 @@ jobs:
       - name: Wait for MongoDB to start
         run:  sleep 10
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name springboot-container --link mongo-container dhruthikonijeti/springboot
+        run: docker run -d -p 8080:8080 --name springboot-container dhruthikonijeti/springboot
 
 
