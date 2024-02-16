@@ -84,6 +84,47 @@ public class UserController {
         }
     }
 
+    @PutMapping("/{userId}/update-certification")
+    public ResponseEntity<Users> updateCertification(
+            @PathVariable int userId,
+            @RequestParam String certificationId,
+            @RequestBody Certification updatedCertification) {
+
+        Optional<Users> existingUser = userService.getUserById(userId);
+
+        if (existingUser.isPresent()) {
+            Users userToUpdate = existingUser.get();
+
+            // Find the certification to update by certificationId
+            Optional<Certification> certificationToUpdate = userToUpdate.getCertifications().stream()
+                    .filter(certification -> certification.getCid().equals(certificationId))
+                    .findFirst();
+
+            if (certificationToUpdate.isPresent()) {
+                // Update the found certification
+                Certification existingCertification = certificationToUpdate.get();
+                existingCertification.setCertificationName(updatedCertification.getCertificationName());
+                existingCertification.setStatus(updatedCertification.getStatus());
+                existingCertification.setCost(updatedCertification.getCost());
+                existingCertification.setType(updatedCertification.getType());
+                existingCertification.setLevel(updatedCertification.getLevel());
+                existingCertification.setExperience(updatedCertification.getExperience());
+                existingCertification.setPrerequisite(updatedCertification.getPrerequisite());
+                existingCertification.setStartDate(updatedCertification.getStartDate());
+                existingCertification.setEndDate(updatedCertification.getEndDate());
+
+                // Save the updated user
+                Users updated = userService.updateUser(userToUpdate);
+
+                return ResponseEntity.ok(updated);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PatchMapping("/{userId}/addc")
     public ResponseEntity<Users> addCertification(@PathVariable int userId, @RequestBody Certification certification) {
         Optional<Users> existingUser = userService.getUserById(userId);
