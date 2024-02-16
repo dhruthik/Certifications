@@ -22,7 +22,7 @@ public class CertificationController {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    @GetMapping("/certifications")
+    @GetMapping("api/certifications")
     public List<EmployeeCertification> getCertifications(@RequestParam("collectionName") String collectionName) {
         System.out.println(collectionName);
         return mongoTemplate.findAll(EmployeeCertification.class, collectionName);
