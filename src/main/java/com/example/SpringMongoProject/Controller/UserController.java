@@ -65,6 +65,25 @@ public class UserController {
         }
     }
 
+    @PatchMapping("/{userId}/updateCertifications")
+    public ResponseEntity<Users> updateCertifications(@PathVariable int userId, @RequestBody List<Certification> updatedCertifications) {
+        Optional<Users> existingUser = userService.getUserById(userId);
+
+        if (existingUser.isPresent()) {
+            Users userToUpdate = existingUser.get();
+
+            // Update the user's certifications with the provided list
+            userToUpdate.setCertifications(updatedCertifications);
+
+            // Save the updated user
+            Users updated = userService.updateUser(userToUpdate);
+
+            return ResponseEntity.ok(updated);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PatchMapping("/{userId}/addc")
     public ResponseEntity<Users> addCertification(@PathVariable int userId, @RequestBody Certification certification) {
         Optional<Users> existingUser = userService.getUserById(userId);
@@ -93,24 +112,7 @@ public class UserController {
         } else {
             return ResponseEntity.notFound().build();
         }
-//
-//
-//
-//
-//
-//        if (existingUser.isPresent()) {
-//            Users userToUpdate = existingUser.get();
-//
-//            // Add the new certification to the user
-//            userToUpdate.getCertifications().add(certification);
-//
-//            // Save the updated user
-//            Users updated = userService.updateUser(userToUpdate);
-//
-//            return ResponseEntity.ok(updated);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
+
     }
 
     @PatchMapping("/{userId}/deletec")
