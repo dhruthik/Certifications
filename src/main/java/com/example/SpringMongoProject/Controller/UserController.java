@@ -156,7 +156,7 @@ public class UserController {
 
     }
 
-    @PatchMapping("/{userId}/deletec")
+   @DeleteMapping ("/{userId}/deletec")
     public ResponseEntity<Users> deleteCertification(@PathVariable int userId, @RequestParam String certificationId) {
         Optional<Users> existingUser = userService.getUserById(userId);
 
