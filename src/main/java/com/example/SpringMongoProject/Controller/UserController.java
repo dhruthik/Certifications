@@ -3,6 +3,7 @@ import com.example.SpringMongoProject.Repo.Userrepo;
 import com.example.SpringMongoProject.Services.UserService;
 import com.example.SpringMongoProject.document.Certification;
 import com.example.SpringMongoProject.document.Users;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/users")
 @AllArgsConstructor
 
