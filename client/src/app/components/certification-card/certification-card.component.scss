@@ -69,7 +69,6 @@
         height: 12rem;
         border-radius: 10px;
         padding: 10px;
-        border-left: 10px solid red;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         .card_r1{
             width: 100%;
@@ -81,6 +80,17 @@
                 display: flex;
                 flex-direction: column;
                 width: 20%;
+                align-items:center;
+                span{
+                    padding: 5px 0;
+                    font-size: 14px;
+                }
+                span:first-child{
+                    border-bottom: 1px solid #eeeeee;
+                }
+            }
+            .cname{
+                white-space: nowrap;
             }
         }
         .card_r2{
@@ -88,9 +98,102 @@
             height: 40%;
         }
     } 
+    :host ::ng-deep .p-steps-number{
+       font-size: 16px;
+    }
+    :host ::ng-deep .p-steps-title{
+        font-size: 14px;
+     }
+
 }
 
+:host ::ng-deep .p-dropdown-label{
+    font-size: 12px;
+}
+
+:host ::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    padding: 7px 10px;
+    font-size: 14px;
+}
 
 :host ::ng-deep .p-steps-number{
     cursor: pointer;
   }
+
+    .cert_card{
+        position: relative;
+    }   
+
+    .remove_cert{
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        font-weight: bold;
+        margin: 10px 10px 0 0;
+        cursor: pointer;
+        i{
+            font-weight: bolder;
+            color: red;
+        }
+    }
+
+    .remove_cert:hover{
+        i{
+            transform: scale(1.08);
+        }
+    }
+
+  .cert_card {
+    &.todo {
+        border-left: 10px solid orange;
+    }
+
+    &.inprogress {
+        border-left: 10px solid #008eff;
+    }
+
+    &.completed {
+        border-left: 10px solid #22c55e;
+    }
+}
+
+:host ::ng-deep .p-steps {
+    .todo {
+        .p-steps-number {
+            color: #bbbbbb;
+        }
+    }
+
+    .inprogress {
+        .p-steps-number {
+            color: #008eff;
+        }
+    }
+
+    .completed {
+        .p-steps-number {
+            color: #22c55e;
+        }
+    }
+}
+
+:host ::ng-deep .p-steps .p-steps-item {
+    .p-steps-number {
+        &.todo {
+            background: yellow;
+        }
+
+        &.inprogress {
+            background: blue;
+        }
+
+        &.completed {
+            background: green;
+        }
+    }
+}

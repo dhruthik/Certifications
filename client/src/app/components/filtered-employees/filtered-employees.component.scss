@@ -1,0 +1,87 @@
+.filtd_emp{
+    padding-top: 5rem;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    .filtd_emp_container{
+        margin: 0 auto;
+        max-width: 1728px;
+        width: 95%;
+        height: 98%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 10px;
+        position: relative;
+        .filtd_emp_header{
+            height: 10%;
+            min-height: 60px;
+            padding: 9px;
+            .filtd_emp_backbtn{
+                display: flex;
+                align-items: center;
+                p-button{
+                    margin-right: 10px;
+                }
+            }
+        }
+        .filtd_emp_body1{
+            height: 90%;
+            padding: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;        
+            .femp_cards{
+                width: 270px;
+                height: 250px;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                flex-direction: column;
+                border-radius: 20px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                margin: 5px;
+                flex: 1 1 270px;
+                .card_avatar{
+                    margin-bottom: 20px;
+                }
+                .card1{
+                    margin: 5px 0;
+                }
+                .card_btn{
+                    cursor: pointer;
+                    button{
+                        width: 100px;
+                        height: 35px;
+                        border: none;
+                        border-radius: 30px;
+                        color: white;
+                        background-color: #2776e3;
+                        font-weight: 600;
+                    }
+                    &:hover {
+                        button {
+                            transform: scale(1.08);
+                        }
+                    }
+                
+                }
+            }
+        }
+        .filtd_emp_body2{
+            overflow-y: scroll;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.filtd_emp_backbtn{
+    
+}
+
+.filtd_emp_nav{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 4rem;
+    z-index: 999;
+}

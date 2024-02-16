@@ -1,0 +1,21 @@
+<div class="side_nav">
+    <div class="nav_left">
+        <div class="user_title">
+            <p-avatar [label]="selectedEmpData.employeeName[0]" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
+            <span>{{selectedEmpData.employeeName}}</span>
+            <div class="nav_close">
+                <i (click)="onNavClose()" class="pi pi-times"></i>
+            </div>
+        </div>
+        <div class="user_details">
+            <span><b>Email : </b>{{selectedEmpData.email}}</span>
+            <span><b>Position : </b>{{selectedEmpData.position}}</span>
+            <span><b>Experience : </b>{{selectedEmpData.experience}}years</span>
+            <span><b>Tech Stack : </b>{{selectedEmpData.techStack}}</span>
+        </div>
+        <div class="user_cert_btn">
+            <p-button label="Add New Certification" (click)="onAddCert()"></p-button>
+        </div>
+    </div>
+    <div class="nav_right" (click)="onNavClose()"></div>
+</div>

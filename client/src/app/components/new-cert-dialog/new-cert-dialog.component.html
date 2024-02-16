@@ -1,0 +1,24 @@
+<div class="new_cert_dialog_container">
+    <div class="dialog_header">
+        <h3>Add New Certification</h3>
+        <div class="nav_close">
+            <i (click)="onDialogClose()" class="pi pi-times"></i>
+        </div>
+    </div>
+    <div class="dialog_section">
+        <form [formGroup]="userForm">
+            <div class="form_stack">
+                <label>Select Tech Stack</label>
+                <p-dropdown formControlName="selectedStack" [options]="techStack" placeholder="select" (onChange)="handleTech($event)"></p-dropdown>
+            </div>
+            <div class="form_cert">
+                <label>Select Certification</label>
+                <p-dropdown formControlName="selectedCertification" [options]="certificationsList[techStackType]" optionLabel="certificationName" placeholder="select"></p-dropdown>
+            </div>
+            <div class="dialog_btns">
+                <p-button class="cancel" label="Cancel" (click)="onDialogClose()"></p-button>
+                <p-button class="add" label="Add" (click)="onAddCert()"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

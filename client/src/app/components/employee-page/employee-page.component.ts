@@ -6,6 +6,7 @@ import { PasswordModule } from 'primeng/password';
 import { CertificationCardComponent } from '../certification-card/certification-card.component';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
+import { GlobalStateService } from '../../services/global-state.service';
 
 @Component({
   selector: 'app-employee-page',
@@ -20,8 +21,20 @@ export class EmployeePageComponent implements OnInit{
     password:["test123"],
    });
    public isLoggedIn:boolean = false;
-   public userData:any = [
-    {
+   public selectedEmpData:any = {};
+  constructor(
+    private fb: FormBuilder,
+    public globalService: GlobalStateService
+    ){}
+
+  ngOnInit(): void {
+    // this.globalService.currentSelectedEmployeeDetails$A.subscribe({
+    //   next: (data)=>{
+    //     this.selectedEmpData = data;
+    //   }
+    // })
+
+    this.selectedEmpData =  {
       "id": 1,
       "employeeName": "John Doe",
       "phoneNumber": "1234567890",
@@ -31,7 +44,7 @@ export class EmployeePageComponent implements OnInit{
       "email": "john@abc.com",
       "certifications": [
         {
-          "id": "certificateId1",
+          "cid": "sfCertificateId1",
           "certificationName": "Associate",
           "status": 0,
           "cost": "$75",
@@ -43,7 +56,7 @@ export class EmployeePageComponent implements OnInit{
           "endDate": ""
         },
         {
-          "id": "certificateId2",
+          "cid": "sfCertificateId2",
           "cost": "$75",
           "type": "Associates",
           "level": "Entry-level",
@@ -55,7 +68,7 @@ export class EmployeePageComponent implements OnInit{
           "status": 1
         },
         {
-          "id": "certificateId3",
+          "cid": "sfCertificateId3",
           "cost": "$200",
           "type": "Admins",
           "level": "Mid-level",
@@ -68,12 +81,6 @@ export class EmployeePageComponent implements OnInit{
         }
       ]
     }
-   ]
-   public certData:any
-  constructor(private fb: FormBuilder){}
-
-  ngOnInit(): void {
-    this.certData = this.userData[0];
   }
 
   empLogin(){

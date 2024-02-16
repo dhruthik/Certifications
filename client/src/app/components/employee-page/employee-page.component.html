@@ -10,7 +10,7 @@
                 </span>
                 <span class="">
                     <label for="password">Password</label>
-                    <input type="password" formControlName="password"  [disabled]="true" />
+                    <input type="password" formControlName="password" />
                 </span>
                 <div class="login_btn">
                     <p-button type="submit" label="Login" (click)="empLogin()"></p-button>
@@ -21,11 +21,13 @@
     @else {
         <div class="emp_cards">
             <div class="emp_cards_header">
-                <p-avatar [label]="certData.employeeName[0]" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
-                <h3>{{certData.employeeName}}</h3>
+                <p-avatar [label]="selectedEmpData.employeeName[0]" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
+                <h3>{{selectedEmpData.employeeName}}</h3>
             </div>
-            <div class="emp_cards_container" *ngFor="let certDetails of certData.certifications">
-                <app-certification-card [certData]="certDetails" ></app-certification-card>
+            <div class="emp_cards_container scroll-container">
+                <div *ngFor="let certDetails of selectedEmpData.certifications">
+                    <app-certification-card [certData]="certDetails" [email]="selectedEmpData.email" ></app-certification-card>
+                </div>
             </div>
         </div>
     }
