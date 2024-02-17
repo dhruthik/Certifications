@@ -35,8 +35,9 @@ jobs:
       - name: Log Disk Space
         run: |
           df -h
-          docker system prune -a -f
           docker login -u dhruthikonijeti --password-stdin Honeygold4#
+          docker system prune -a -f
+
       - name: Pull Image from docker hub
         run: |
             docker pull dhruthikonijeti/springboot:latest
