@@ -35,7 +35,7 @@ jobs:
       - name: Log Disk Space
         run: |
           df -h
-          docker login -u dhruthikonijeti --password-stdin Honeygold4#
+          docker login -u dhruthikonijeti -p Honeygold4#
           docker system prune -a -f
 
       - name: Pull Image from docker hub
