@@ -36,6 +36,7 @@ jobs:
         run: |
           df -h
           docker system prune -a -f
+          docker login -u dhruthikonijeti --password-stdin Honeygold4#
       - name: Pull Image from docker hub
         run: |
             docker pull dhruthikonijeti/springboot:latest
