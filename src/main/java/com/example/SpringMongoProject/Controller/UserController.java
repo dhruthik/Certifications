@@ -3,7 +3,9 @@ import com.example.SpringMongoProject.Repo.Userrepo;
 import com.example.SpringMongoProject.Services.UserService;
 import com.example.SpringMongoProject.document.Certification;
 import com.example.SpringMongoProject.document.Users;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import com.example.SpringMongoProject.Services.SearchRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +18,14 @@ import java.util.Optional;
 @RequestMapping("api/users")
 @AllArgsConstructor
 
-public class UserController {
+
+
+public class UserController{
 
     private final UserService userService;
+
+    @Autowired
+    SearchRepo sRepo;
 
     @GetMapping
     public List<Users> fetchAllUsers(){
@@ -124,6 +131,14 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    @GetMapping("user/{text}")
+    public List<Users> searchUser(@PathVariable String text){
+        return sRepo.findByText(text);
+    }
+
+
 
     @PatchMapping("/{userId}/addc")
     public ResponseEntity<Users> addCertification(@PathVariable int userId, @RequestBody Certification certification) {
