@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-  public baseURL:String = 'http://localhost:8080';
+  // public baseURL:string = 'http://localhost:8080';
+  public baseURL:string = 'http://18.188.176.26:8080/api';
   public employeeList:any;
   constructor(private http:HttpClient) { }
 
@@ -15,16 +16,16 @@ export class UsersService {
     return this.http.get<any>(this.baseURL+ url);
   }
 
-  updateUser(email:string,payload:any):Observable<any>{
-    return this.http.post<any>(this.baseURL+'/update-user/'+email, payload);
+  updateUser(id:number,payload:any):Observable<any>{
+    return this.http.patch<any>(this.baseURL +'/users/'+ id +'/addc', payload);
   }
 
-  updateCertStatus(email:string,payload:any):Observable<any>{
-    return this.http.put<any>(this.baseURL+'/update-status/'+email, payload);
+  updateCertStatus(id:number,cid:string,payload:any):Observable<any>{
+    return this.http.put<any>(this.baseURL +'/users/'+ id +'/update-certification?certificationId='+cid , payload);
   }
 
-  removeCertFromUser(email:string,cid:string){
-    return this.http.delete<any>(this.baseURL+'/remove-cert?email='+email+'&cid='+cid);
+  removeCertFromUser(id:number,cid:string){
+    return this.http.delete<any>(this.baseURL +'/users/'+id+'/deletec?certificationId='+cid);
   }
 
   setEmployeeList(list:any){

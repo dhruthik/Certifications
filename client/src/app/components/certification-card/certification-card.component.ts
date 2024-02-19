@@ -32,7 +32,7 @@ import { MessageService } from 'primeng/api';
   public activeIndex: number = 0;
   public selectedState:any={};
   @Input() certData:any = [];
-  @Input() email:string = '';
+  @Input() userId:number = 0;
   @Output() certRemoved = new EventEmitter<string>();
   
     constructor(private usersService : UsersService,private messageService: MessageService){}
@@ -47,16 +47,17 @@ import { MessageService } from 'primeng/api';
     }
 
     handleTasks(e:any){
-      this.activeIndex = this.taskStatus.findIndex((state:any)=>state.label == this.selectedState?.label);
+      const activeIdx = this.taskStatus.findIndex((state:any)=>state.label == this.selectedState?.label);
       console.log('task : ',this.certData)
-      this.certData.status = this.activeIndex;
-      if(this.activeIndex!=0){
+      this.certData.status = activeIdx;
+      if(activeIdx!=0){
         this.certData[this.activeIndex === 1 ? 'startDate' : 'endDate'] = this.getDate();
       }
-      this.usersService.updateCertStatus(this.email,this.certData).subscribe({
+      this.usersService.updateCertStatus(this.userId,this.certData.cid,this.certData).subscribe({
         next:(res)=>{
           this.messageService.add({ severity: 'info', summary: 'Updated', detail: 'Status updated!' });
           console.log("Certificate status updated successfully",res);
+          this.activeIndex = activeIdx;
         },
         error:(e)=>{
           console.log("error : ",e);
@@ -65,8 +66,8 @@ import { MessageService } from 'primeng/api';
     }
 
     removeCert(){
-      console.log("remove : ",this.email,this.certData.cid);
-      this.usersService.removeCertFromUser(this.email,this.certData.cid).subscribe({
+      console.log("remove : ",this.userId,this.certData.cid);
+      this.usersService.removeCertFromUser(this.userId,this.certData.cid).subscribe({
         next:(res)=>{
           this.certRemoved.emit(this.certData.cid);
           this.messageService.add({ severity: 'warn', summary: 'Deleted', detail: 'certification removed!' });

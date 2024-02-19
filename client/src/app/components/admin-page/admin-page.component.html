@@ -23,9 +23,16 @@
             </form>
         </div>
         <div class="admin_content scroll-container" *ngIf="showEmpContent">
-            <div *ngFor="let certDetails of certData.certifications">
-                <app-certification-card [certData]="certDetails" [email]="certData.email" (certRemoved)="onCertRemoved($event)" ></app-certification-card>
-            </div>
+            @if(certData.certifications.length){
+                <div *ngFor="let certDetails of certData.certifications">
+                    <app-certification-card [certData]="certDetails" [userId]="certData.id" (certRemoved)="onCertRemoved($event)" ></app-certification-card>
+                </div>
+            } @else{
+                <div>
+                    <h3>No Certifications available!!</h3>
+                </div>
+
+            }
         </div>
     </div>
     <div class="admin_nav" *ngIf="globalService.showNavigationFlag">

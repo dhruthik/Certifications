@@ -26,7 +26,7 @@
             </div>
             <div class="emp_cards_container scroll-container">
                 <div *ngFor="let certDetails of selectedEmpData.certifications">
-                    <app-certification-card [certData]="certDetails" [email]="selectedEmpData.email" ></app-certification-card>
+                    <app-certification-card [certData]="certDetails" [userId]="selectedEmpData.id" ></app-certification-card>
                 </div>
             </div>
         </div>

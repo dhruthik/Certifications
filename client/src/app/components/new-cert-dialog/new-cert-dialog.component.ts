@@ -43,8 +43,8 @@ export class NewCertDialogComponent implements OnInit{
   onAddCert(){
     const newSelectedCertificate = this.globalService.userForm.get("selectedCertification")?.value;
     newSelectedCertificate.status = 0;
-    console.log(this.selectedEmpData.email, this.globalService.userForm.get("selectedCertification")?.value)
-    this.usersService.updateUser(this.selectedEmpData.email, newSelectedCertificate).subscribe({
+    console.log(this.selectedEmpData.id, this.globalService.userForm.get("selectedCertification")?.value)
+    this.usersService.updateUser(this.selectedEmpData.id, newSelectedCertificate).subscribe({
       next:(res)=>{
         console.log("updated successfully : ",res);
         this.selectedEmpData.certifications.push(newSelectedCertificate);

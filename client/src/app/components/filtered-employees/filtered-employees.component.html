@@ -33,7 +33,7 @@
         @else {
             <div class="filtd_emp_body2">
                 <div *ngFor="let certDetails of certData.certifications">
-                    <app-certification-card [certData]="certDetails" [email]="certData.email" (certRemoved)="onCertRemoved($event)" ></app-certification-card>
+                    <app-certification-card [certData]="certDetails" [userId]="certData.id" (certRemoved)="onCertRemoved($event)" ></app-certification-card>
                 </div>
             </div>
         }
