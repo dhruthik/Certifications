@@ -25,7 +25,7 @@ public class SearchRepoImpl implements SearchRepo{
     public List<Users> findByText(String text) {
         final List<Users> users = new ArrayList<>();
 
-        MongoDatabase database = mongoClient.getDatabase("certifications");
+        MongoDatabase database = mongoClient.getDatabase("certification");
         MongoCollection<Document> collection = database.getCollection("users");
         AggregateIterable<Document> result = collection.aggregate(Arrays.asList(new Document("$match",
                         new Document("certifications",

@@ -21,7 +21,6 @@ public class UserDataInitializer {
                             "John Doe",
                             "2890786547",
                             "Software Developer",
-                            "775 Apple dr",
                             4,
                             "abc123123",
                             List.of(

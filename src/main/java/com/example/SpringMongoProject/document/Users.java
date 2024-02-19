@@ -6,31 +6,42 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Document
+@Document(collection = "users")
 public class Users {
     private int id;
     private String employeeName;
     private String phoneNumber;
     private String position;
-    private String address;
+//    private String address;
     private int experience;
     private String email;
     private List<Certification> certifications;
 
     public Users(int id, String employeeName,
-                 String phoneNumber, String position, String address,
+                 String phoneNumber, String position,
                  int experience, String email,List<Certification> certifications) {
         this.id = id;
         this.employeeName = employeeName;
         this.phoneNumber = phoneNumber;
         this.position = position;
-        this.address = address;
+//        this.address = address;
         this.experience = experience;
         this.email = email;
         this.certifications = certifications;
     }
 
-
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", employeeName='" + employeeName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", position='" + position + '\'' +
+                ", experience=" + experience +
+                ", email='" + email + '\'' +
+                ", certifications=" + certifications +
+                '}';
+    }
 }
 
 
