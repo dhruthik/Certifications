@@ -8,11 +8,14 @@ import { Router } from '@angular/router';
 import { CertificationCardComponent } from '../certification-card/certification-card.component';
 import { SideNavComponent } from '../side-nav/side-nav.component';
 import { GlobalStateService } from '../../services/global-state.service';
+import { TabViewModule } from 'primeng/tabview';
+import { AccordionModule } from 'primeng/accordion';
+import { NewCertDialogComponent } from '../new-cert-dialog/new-cert-dialog.component';
 
 @Component({
   selector: 'app-filtered-employees',
   standalone: true,
-  imports: [AvatarModule, AvatarGroupModule, CommonModule, ButtonModule, CertificationCardComponent, SideNavComponent],
+  imports: [AvatarModule, AvatarGroupModule, CommonModule, ButtonModule, CertificationCardComponent, SideNavComponent, TabViewModule, AccordionModule, NewCertDialogComponent],
   templateUrl: './filtered-employees.component.html',
   styleUrl: './filtered-employees.component.scss'
 })
@@ -22,6 +25,8 @@ export class FilteredEmployeesComponent implements OnInit{
   public cardsFlag:boolean = false;
   public certData:any = {};
   public showNavFlag:boolean=false;
+  public tabs = ["Todo", "In Progress", "Completed"];
+  public filteredObj:any = {};
 
   constructor(
     private usersService: UsersService,
@@ -32,6 +37,31 @@ export class FilteredEmployeesComponent implements OnInit{
   ngOnInit(): void {
     this.employeeList = this.usersService.getEmployeeList();
     console.log('em lsit : ',this.employeeList)
+    this.handleFilteredSelectedCertsByStatus();
+  }
+
+  handleFilteredSelectedCertsByStatus(){
+    this.filteredObj = {
+      'todo': [],
+      'inprogress': [],
+      'completed': []
+    };
+    const selectedCertName = this.globalService.filteredByCert;
+    this.employeeList.forEach((emp:any)=>{
+      const fCert = emp.certifications.find((cert:any)=>cert.certificationName==selectedCertName);
+      switch (fCert?.status) {
+        case 0:
+            this.filteredObj['todo'].push(emp);
+            break;
+        case 1:
+            this.filteredObj['inprogress'].push(emp);
+            break;
+        default:
+            this.filteredObj['completed'].push(emp);
+       }
+    })
+
+    console.log('filobj : ',this.filteredObj)
   }
 
   viewDetails(empData:any){
@@ -59,9 +89,10 @@ export class FilteredEmployeesComponent implements OnInit{
     this.globalService.showNavigationFlag=true;
     this.showNavFlag = this.globalService.showNavigationFlag
     console.log(this.globalService.showNavigationFlag)
-    // if(!Object.keys(this.certificationsList).length){
-    //  await this.globalService.handleCertificationsApi();
-    //  this.certificationsList = this.globalService.certificationsList;
-    // }
    }
+
+   isCertAvailable(status: number): boolean {
+    return this.certData.certifications.some((cert:any) => cert.status === status);
+  }
+  
 }

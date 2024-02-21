@@ -12,7 +12,9 @@ export class GlobalStateService {
   private _showDialogFlagInAddCert: boolean = false;
   private _showNavigationFlag: boolean = false;
   public _certificationsList:any = {};
-
+  private _filteredByCert: string = '';
+  private _isAdmin: boolean = true;
+  
   private _selectedEmployeeDetails$A = new BehaviorSubject<{}>({});
   currentSelectedEmployeeDetails$A = this._selectedEmployeeDetails$A.asObservable();
 
@@ -64,6 +66,22 @@ export class GlobalStateService {
   set certificationsList(value: any) {
     this._certificationsList = value;
   }
+
+  get filteredByCert(): string {
+    return this._filteredByCert;
+  }
+
+  set filteredByCert(value: string) {
+    this._filteredByCert = value;
+  }
+
+  get isAdmin(): boolean {
+    return this._isAdmin;
+  }
+  set isAdmin(value: boolean) {
+    this._isAdmin = value;
+  }
+
 
   getSelectedEmployeeDetails$A(empData: any) {
     this._selectedEmployeeDetails$A.next(empData);

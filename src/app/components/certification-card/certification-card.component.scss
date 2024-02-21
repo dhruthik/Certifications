@@ -18,19 +18,27 @@
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         display: flex;
         font-size: 14px;
-        .card_r1{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            .c1{
-                padding: 2px;
-            }
+        .card_left{
+            display: none;
         }
-        .card_r2{
-            width: 100%;
-           
-            .card_steps{
-                height: 100%;
+        .card_right{
+            width: 90%;
+            height: 100%;
+            .card_r1{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                .c1{
+                    padding: 2px;
+                }
+            }
+            .card_r2{
+                width: 100%;
+                display: flex;
+                align-items: end;
+                .card_steps{
+                    height: 100%;
+                }
             }
         }
     }
@@ -61,43 +69,67 @@
         font-size: 12px;
       }
     
+      .c1{
+        span{
+            b::after{
+            content: ": ";
+            }
+        }
+      }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .cert_card{
         width: 95%;
+        display: flex;
+        align-items: center;
         height: 12rem;
         border-radius: 10px;
         padding: 10px;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        .card_r1{
-            width: 100%;
-            height: 60%;
-            display: flex;
-            align-items: center;
-            .c1{
-                padding: 10px;
+        .card_left{
+            width: 10%;
+            img{
+                width: 100%;
+                height: 100px;
+                object-fit: contain;
+            }
+        }
+        .card_right{
+            width: 90%;
+            .card_r1{
+                width: 100%;
+                height: 60%;
                 display: flex;
-                flex-direction: column;
-                width: 20%;
-                align-items:center;
-                span{
-                    padding: 5px 0;
-                    font-size: 14px;
+                align-items: center;
+                .c1{
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    width: 20%;
+                    align-items:center;
+                    span{
+                        padding: 5px 0;
+                        font-size: 14px;
+                    }
+                    span:first-child{
+                        border-bottom: 1px solid #eeeeee;
+                    }
                 }
-                span:first-child{
-                    border-bottom: 1px solid #eeeeee;
+                .cname{
+                    white-space: nowrap;
                 }
             }
-            .cname{
-                white-space: nowrap;
+            .card_r2{
+                width: 100%;
+                // height: 40%;
+                .cdownload{
+                    text-align: end;
+                    margin-right: 30px; 
+                }
             }
-        }
-        .card_r2{
-            width: 100%;
-            height: 40%;
-        }
-    } 
+         } 
+    }
     :host ::ng-deep .p-steps-number{
        font-size: 16px;
     }
@@ -201,3 +233,5 @@
 .cert_name{
     white-space: break-spaces;
 }
+
+

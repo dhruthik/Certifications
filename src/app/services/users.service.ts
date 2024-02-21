@@ -12,7 +12,14 @@ export class UsersService {
   constructor(private http:HttpClient) { }
 
   getUsers(certName:string):Observable<any>{
-    const url = certName ? '/users/user/'+certName : '/users'
+    let url=''
+    if(certName){
+       this.baseURL = 'http://localhost:8080';
+       url = "/users/"+certName;
+    }else{
+      url  = "/users"
+    }
+    // const url = certName ? '/users/user/'+certName : '/users'
     return this.http.get<any>(this.baseURL+ url);
   }
 

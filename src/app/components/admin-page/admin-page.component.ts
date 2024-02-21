@@ -9,19 +9,18 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { CertificationCardComponent } from '../certification-card/certification-card.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
 import { UsersService } from '../../services/users.service';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { Router } from '@angular/router';
 import { GlobalStateService } from '../../services/global-state.service';
 import { SideNavComponent } from '../side-nav/side-nav.component';
 import { NewCertDialogComponent } from '../new-cert-dialog/new-cert-dialog.component';
+import { TabViewModule } from 'primeng/tabview';
 
 @Component({
   selector: 'app-admin-page',
   standalone: true,
-  imports: [AutoCompleteModule, ButtonModule, ToastModule, ReactiveFormsModule, FormsModule, CommonModule, AvatarModule, AvatarGroupModule, CertificationCardComponent, DropdownModule, RadioButtonModule, SideNavComponent, NewCertDialogComponent ],
-  providers:[MessageService],
+  imports: [AutoCompleteModule, ButtonModule, ToastModule, ReactiveFormsModule, FormsModule, CommonModule, AvatarModule, AvatarGroupModule, CertificationCardComponent, DropdownModule, RadioButtonModule, SideNavComponent, NewCertDialogComponent, TabViewModule ],
   templateUrl: './admin-page.component.html',
   styleUrl: './admin-page.component.scss'
 })
@@ -38,6 +37,7 @@ export class AdminPageComponent implements OnInit{
   public categories: any[] = ['Employee', 'Certifications'];
   public categoryName:string='Employee';
   public certificationsList:any ={};
+  public tabs = ["Todo", "In Progress", "Completed"];
   constructor(
      private usersService: UsersService,
      private router: Router,
@@ -46,6 +46,7 @@ export class AdminPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.userForm = this.globalService.userForm;
+    this.globalService.isAdmin = true;
     this.usersService.getUsers('').subscribe({
       next:list=>{
       this.users = list;
@@ -55,6 +56,7 @@ export class AdminPageComponent implements OnInit{
         this.users = users;
       }
     })
+    this.userForm.get('selectedCategory')?.patchValue("Employee")
     this.userForm.get('selectedCategory')?.valueChanges.subscribe((selectedValue) => {
       this.categoryName = selectedValue;
       if(!Object.keys(this.certificationsList).length && selectedValue == 'Certifications'){
@@ -96,6 +98,11 @@ export class AdminPageComponent implements OnInit{
     this.userForm.patchValue({selectedData:null});
   }
 
+  goToMain(){
+    this.showEmpContent = false;
+    this.userForm.patchValue({selectedData:null});
+  }
+
   async onNavOpen(){
    this.globalService.showNavigationFlag=true;
    if(!Object.keys(this.certificationsList).length){
@@ -120,6 +127,7 @@ export class AdminPageComponent implements OnInit{
   onSearchByCert(){
     let certName = this.userForm.get('selectedData')?.value.certificationName;
     if(!certName) return alert('enter valid name');
+    this.globalService.filteredByCert = certName;
     this.usersService.getUsers(certName).subscribe({
       next:list=>{
       this.users = list;
@@ -135,4 +143,9 @@ export class AdminPageComponent implements OnInit{
       }
     })
   }
+
+  isCertAvailable(status: number): boolean {
+    return this.certData.certifications.some((cert:any) => cert.status === status);
+  }
+
 }

@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalStateService } from '../../services/global-state.service';
-import { MessageService } from 'primeng/api';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-new-cert-dialog',
   standalone: true,
   imports: [ToastModule, DropdownModule, ReactiveFormsModule, ButtonModule, CommonModule],
-  providers:[MessageService],
+  providers: [ MessageService ],
   templateUrl: './new-cert-dialog.component.html',
   styleUrl: './new-cert-dialog.component.scss'
 })
@@ -27,7 +27,7 @@ export class NewCertDialogComponent implements OnInit{
   constructor(
     private globalService: GlobalStateService,
     private usersService: UsersService,
-    private messageService: MessageService,
+    public messageService : MessageService
   ){}
 
   ngOnInit(): void {
@@ -47,11 +47,11 @@ export class NewCertDialogComponent implements OnInit{
     this.usersService.updateUser(this.selectedEmpData.id, newSelectedCertificate).subscribe({
       next:(res)=>{
         console.log("updated successfully : ",res);
+        this.messageService.add({ severity: 'info', summary: 'Updated', detail: 'New Certification added' }); 
         this.selectedEmpData.certifications.push(newSelectedCertificate);
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Certification Added' });
       },
       error:error=>{
-        this.messageService.add({ severity: 'error', summary: 'Failed', detail: 'Certification already exists' });
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error occured while add new record' });
         console.log("error updating the data : ",error);
       }
     });

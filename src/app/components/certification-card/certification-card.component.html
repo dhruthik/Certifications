@@ -1,49 +1,69 @@
 <div class="certification_card">
     <div class="cert_card_container">
         <div class="cert_card" [ngClass]="{ 'todo': activeIndex === 0, 'inprogress': activeIndex === 1, 'completed': activeIndex === 2 }">
-            <div class="remove_cert" (click)="removeCert()">
+            <div class="remove_cert" *ngIf="globalService.isAdmin" (click)="removeCert($event)">
+                <!-- <p-button (click)="confirm2($event)" icon="pi pi-times" label="Delete" styleClass="p-button-danger"></p-button> -->
                 <i class="pi pi-trash" style="font-size: 0.9rem"></i>
             </div>
-            <div class="card_r1">
-                <div class="cname c1">
-                    <span><b>Certification Name</b></span>
-                    <span class="cert_name">{{certData.certificationName}}</span>
-                </div>
-                <div class="ctype c1">
-                    <span><b>Type </b></span>
-                    <span>{{certData.type || '-'}}</span>
-                </div>
-                <div class="clevel c1">
-                    <span><b>Level </b></span>
-                    <span>{{certData.level || '-'}}</span>
-                </div>
-                <div class="cstartData c1" *ngIf="activeIndex!==0">
-                    <span><b>Start Date </b></span>
-                    <span>{{(certData.startDate | date:'MM/dd/yyyy') || '-'}}</span>
-                </div>
-                <div class="cendDate c1" *ngIf="activeIndex==2">
-                    <span><b>End Date </b></span>
-                    <span>{{(certData.endDate | date:'MM/dd/yyyy')  || '-'}}</span>
-                </div>
-                <div class="cexp c1">
-                    <span><b>Experience </b></span>
-                    <span>{{certData.experience  || '-'}}</span>
-                </div>
-                <!-- <div class="cprereq c1">
-                    <span><b>Prerequisite </b></span>
-                    <span>{{certData.prerequisite || '-'}}</span>
-                </div> -->
-                <div class="cstatus c1">
-                    <span><b>Status </b></span>
-                    <p-dropdown [options]="taskStatus" [(ngModel)]="selectedState" (onChange)="handleTasks($event)" optionLabel="label" placeholder="select a state"></p-dropdown>
-                    <!-- <span>{{taskStatus[certData.status].label || '-'}}</span> -->
-                </div>    
+            <div class="card_left">
+                <img [src]="'../../../assets/images/'+getImage()">
             </div>
-            <div class="card_r2">
-                <div class="card_steps">
-                    <p-steps [model]="taskStatus" [activeIndex]="activeIndex" [readonly]="true" (activeIndexChange)="onActiveIndexChange($event)"></p-steps>
+            <div class="card_right">
+                <div class="card_r1">
+                    <div class="cname c1">
+                        <span><b>Certification Name</b></span>
+                        <span class="cert_name">{{certData.certificationName}}</span>
+                    </div>
+                    <div class="ctype c1">
+                        <span><b>Type </b></span>
+                        <span>{{certData.type || '-'}}</span>
+                    </div>
+                    <div class="clevel c1">
+                        <span><b>Level </b></span>
+                        <span>{{certData.level || '-'}}</span>
+                    </div>
+                    <div class="cstartData c1" *ngIf="activeIndex!==0">
+                        <span><b>Start Date </b></span>
+                        <span>{{(certData.startDate | date:'MM/dd/yyyy') || '-'}}</span>
+                    </div>
+                    <div class="cendDate c1" *ngIf="activeIndex==2">
+                        <span><b>End Date </b></span>
+                        <span>{{(certData.endDate | date:'MM/dd/yyyy')  || '-'}}</span>
+                    </div>
+                    <!-- <div class="cexp c1">
+                        <span><b>Experience </b></span>
+                        <span>{{certData.experience  || '-'}}</span>
+                    </div> -->
+                    <!-- <div class="cprereq c1">
+                        <span><b>Prerequisite </b></span>
+                        <span>{{certData.prerequisite || '-'}}</span>
+                    </div> -->
+                    <div class="cstatus c1">
+                        <span><b>Status </b></span>
+                        <p-dropdown [options]="taskStatus" [(ngModel)]="selectedState" (onChange)="handleTasks($event)" optionLabel="label" placeholder="select status"></p-dropdown>
+                    </div>    
+                    
+                </div>
+                <div class="card_r2">
+                    <div class="cdownload c1" *ngIf="activeIndex==2">
+                        <span><b>Download Certification </b></span>
+                        <i class="pi pi-download" style="font-size: 0.9rem"></i>
+                    </div>
                 </div>
             </div>
+            
         </div>
+        <p-toast></p-toast>
+        <p-confirmDialog></p-confirmDialog>
+        <p-dialog header="Upload Certificate" [(visible)]="showInprogressDialog" [style]="{width: '50vw'}">
+            <p-fileUpload name="myfile[]" [multiple]="false" accept="image/*" [maxFileSize]="1000000">
+                <ng-template pTemplate="toolbar">
+                    <div class="py-3">Upload the certificate</div>
+                </ng-template>
+                <ng-template let-file pTemplate="file">
+                    <div>{{file.name}}</div>
+                </ng-template>
+            </p-fileUpload>
+        </p-dialog>
     </div>
 </div>

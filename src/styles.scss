@@ -13,7 +13,7 @@
 .form_stack, .form_cert{
     p-dropdown{
         .p-dropdown{
-            width: 40%;
+            width: 80%;
         }
        }
 }
@@ -39,3 +39,58 @@
     transition: border-color 0.3s ease-in-out;
   }
   
+@media (max-width:769px) {
+  p-autocomplete{
+    div{
+      input{
+        height: 30px;
+      }
+      button{
+        height: 30px;
+      }
+    }
+  } 
+
+  p-button{
+    button{
+      padding: 7px;
+      font-size: 12px;
+    }
+  }
+
+  .p-tabview-nav{
+    font-size: 14px;
+  }
+
+  .emp_login  form  span  input{
+    height: 30px !important;
+  }
+
+  h3{
+    font-size: 16px;
+  }
+
+  .p-overlay{
+    width: 100%;
+    ul{
+      li{
+        padding: 4px 12px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .form_stack, .form_cert{
+    font-size: 14px;
+    p-dropdown{
+        .p-dropdown{
+            width: 100% !important;
+        }
+       }
+  }
+
+  .p-inputtext{
+    padding: 5px 6px;
+  }
+
+}

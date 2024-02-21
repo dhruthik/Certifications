@@ -5,40 +5,132 @@
                 <p-button label="Back" [disabled]="false" (click)="back()"></p-button>
                 <i *ngIf="cardsFlag" class="pi pi-bars" (click)="onNavOpen()"></i>
             </div>
+            <div class="filtd_emp_cert">
+                <h3>{{globalService.filteredByCert}}</h3>
+            </div>
         </div>
         @if (!cardsFlag) {
-            <div class="filtd_emp_body1">
-                <div class="femp_cards" *ngFor="let emp of employeeList">
-                    <div class="card_avatar card1">
-                        <p-avatar [label]="emp.employeeName[0]" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
-                    </div>
-                    <div class="card_name card1">
-                        <!-- <span>Employee Name : </span> -->
-                        <span>{{emp.employeeName}}</span>
-                    </div>
-                    <div class="card_position card1">
-                        <!-- <span>Position : </span> -->
-                        <span>{{emp.position}}</span>
-                    </div>
-                    <div class="card_email card1">
-                        <!-- <span>Email : </span> -->
-                        <span>{{emp.email}}</span>
-                    </div>
-                    <div class="card_btn card1">
-                        <button (click)="viewDetails(emp)">View Details</button>
-                    </div>
-                </div>
+            <div class="filtd_emp_body1 scroll-container">
+                <p-accordion [multiple]="true" [activeIndex]="[0]">      
+                    <p-accordionTab header="ToDo">
+                        <div class="filtd_emp_card_container">
+                            @if(filteredObj.todo.length){
+                                <div class="femp_cards" *ngFor="let emp of filteredObj.todo">
+                                    <div class="card_avatar card1">
+                                        <p-avatar [label]="emp.employeeName[0]" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                                    </div>
+                                    <div class="card_name card1">
+                                        <!-- <span>Employee Name : </span> -->
+                                        <span>{{emp.employeeName}}</span>
+                                    </div>
+                                    <div class="card_position card1">
+                                        <!-- <span>Position : </span> -->
+                                        <span>{{emp.position}}</span>
+                                    </div>
+                                    <div class="card_email card1">
+                                        <!-- <span>Email : </span> -->
+                                        <span>{{emp.email}}</span>
+                                    </div>
+                                    <div class="card_btn card1">
+                                        <button (click)="viewDetails(emp)">View Details</button>
+                                    </div>
+                                </div> 
+                            }@else{
+                                <h4>No Certifications found!</h4>
+                            }
+                            
+                        </div>     
+                    </p-accordionTab>
+                    <p-accordionTab header="In Progress">
+                        <div class="filtd_emp_card_container">
+                            @if(filteredObj.inprogress.length){
+                                <div class="femp_cards" *ngFor="let emp of filteredObj.inprogress">
+                                    <div class="card_avatar card1">
+                                        <p-avatar [label]="emp.employeeName[0]" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                                    </div>
+                                    <div class="card_name card1">
+                                        <!-- <span>Employee Name : </span> -->
+                                        <span>{{emp.employeeName}}</span>
+                                    </div>
+                                    <div class="card_position card1">
+                                        <!-- <span>Position : </span> -->
+                                        <span>{{emp.position}}</span>
+                                    </div>
+                                    <div class="card_email card1">
+                                        <!-- <span>Email : </span> -->
+                                        <span>{{emp.email}}</span>
+                                    </div>
+                                    <div class="card_btn card1">
+                                        <button (click)="viewDetails(emp)">View Details</button>
+                                    </div>
+                                </div> 
+                            }@else{
+                                <h4>No Certifications found!</h4>
+                            } 
+                        </div>
+                    </p-accordionTab>
+                    <p-accordionTab header="Completed">
+                        <div class="filtd_emp_card_container">
+                            @if(filteredObj.completed.length){
+                                <div class="femp_cards" *ngFor="let emp of filteredObj.completed">
+                                    <div class="card_avatar card1">
+                                        <p-avatar [label]="emp.employeeName[0]" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                                    </div>
+                                    <div class="card_name card1">
+                                        <!-- <span>Employee Name : </span> -->
+                                        <span>{{emp.employeeName}}</span>
+                                    </div>
+                                    <div class="card_position card1">
+                                        <!-- <span>Position : </span> -->
+                                        <span>{{emp.position}}</span>
+                                    </div>
+                                    <div class="card_email card1">
+                                        <!-- <span>Email : </span> -->
+                                        <span>{{emp.email}}</span>
+                                    </div>
+                                    <div class="card_btn card1">
+                                        <button (click)="viewDetails(emp)">View Details</button>
+                                    </div>
+                                </div> 
+                            }@else{
+                                <h4>No Certifications found!</h4>
+                            } 
+                        </div>
+                    </p-accordionTab>
+                </p-accordion>
             </div>
         }
         @else {
             <div class="filtd_emp_body2">
-                <div *ngFor="let certDetails of certData.certifications">
-                    <app-certification-card [certData]="certDetails" [userId]="certData.id" (certRemoved)="onCertRemoved($event)" ></app-certification-card>
-                </div>
+                @if(certData.certifications.length){
+                    <div class="card">
+                      <p-tabView>
+                        <p-tabPanel *ngFor="let tab of tabs; let i = index; let last = last" [header]="tab">
+                            @if(isCertAvailable(i)){
+                                <div *ngFor="let certDetails of certData.certifications">
+                                    @if(certDetails.status === i){
+                                        <app-certification-card [certData]="certDetails" [userId]="certData.id" (certRemoved)="onCertRemoved($event)"></app-certification-card>
+                                    }
+                                  </div>
+                            }
+                            @else {
+                                <h3 class="no_cert">No Certifications available!!</h3>
+                            }
+                          </p-tabPanel>
+                      </p-tabView>
+                    </div>
+                } @else{
+                    <div>
+                        <h3>No Certifications available!!</h3>
+                    </div>
+                }
             </div>
         }
         <div class="filtd_emp_nav" *ngIf="globalService.showNavigationFlag" >
             <app-side-nav></app-side-nav>
         </div>
     </div>
+</div>
+<div class="filtd_emp_dialog" *ngIf="globalService.showDialogFlagInAddCert">
+    <app-new-cert-dialog></app-new-cert-dialog>
 </div>

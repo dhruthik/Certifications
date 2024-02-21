@@ -20,18 +20,33 @@
                 <div class="admin_search_btn">
                     <p-button label="Search" [disabled]="false" (click)="onSubmit()"></p-button>
                 </div>
+                <div class="admin_back" *ngIf="showEmpContent">
+                    <p-button label="Back" [disabled]="false" (click)="goToMain()"></p-button>
+                </div>
             </form>
         </div>
         <div class="admin_content scroll-container" *ngIf="showEmpContent">
             @if(certData.certifications.length){
-                <div *ngFor="let certDetails of certData.certifications">
-                    <app-certification-card [certData]="certDetails" [userId]="certData.id" (certRemoved)="onCertRemoved($event)" ></app-certification-card>
+                <div class="card">
+                  <p-tabView>
+                    <p-tabPanel *ngFor="let tab of tabs; let i = index; let last = last" [header]="tab">
+                        @if(isCertAvailable(i)){
+                            <div *ngFor="let certDetails of certData.certifications">
+                                @if(certDetails.status === i){
+                                    <app-certification-card [certData]="certDetails" [userId]="certData.id" (certRemoved)="onCertRemoved($event)"></app-certification-card>
+                                }
+                              </div>
+                        }
+                        @else {
+                            <h3 class="no_cert">No Certifications available!!</h3>
+                        }
+                      </p-tabPanel>
+                  </p-tabView>
                 </div>
             } @else{
                 <div>
                     <h3>No Certifications available!!</h3>
                 </div>
-
             }
         </div>
     </div>
@@ -42,4 +57,3 @@
 <div class="admin_dialog" *ngIf="globalService.showDialogFlagInAddCert">
     <app-new-cert-dialog></app-new-cert-dialog>
 </div>
-<p-toast></p-toast>
